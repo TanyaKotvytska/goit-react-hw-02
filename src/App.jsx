@@ -39,7 +39,7 @@ export default function App() {
   };
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positiveFeedback = totalFeedback ? Math.round((feedback.good / totalFeedback) * 100) : 0;
+  const positiveFeedbackPercentage = totalFeedback ? Math.round((feedback.good / totalFeedback) * 100) : 0;
 
   return (
     <>
@@ -47,7 +47,7 @@ export default function App() {
       <Options onFeedback={updateFeedback} totalFeedback={totalFeedback} />
       {totalFeedback > 0 ? (
         <>
-          <Feedback good={feedback.good} neutral={feedback.neutral} bad={feedback.bad} totalFeedback={totalFeedback} />
+          <Feedback good={feedback.good} neutral={feedback.neutral} bad={feedback.bad} totalFeedback={totalFeedback} positiveFeedback={positiveFeedbackPercentage} />
         </>
       ) : (
         <Notification />
